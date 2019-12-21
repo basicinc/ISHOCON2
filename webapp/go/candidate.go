@@ -24,7 +24,7 @@ type PartyElectionResult struct {
 }
 
 func getAllCandidate() (candidates []Candidate) {
-	rows, err := db.Query("SELECT * FROM candidates")
+	rows, err := db.Query("SELECT name, political_party, sex FROM candidates")
 	if err != nil {
 		panic(err.Error())
 	}

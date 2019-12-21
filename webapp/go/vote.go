@@ -11,7 +11,7 @@ type Vote struct {
 }
 
 func getVoteCountByCandidateID(candidateID int) (count int) {
-	row := db.QueryRow("SELECT COUNT(*) AS count FROM votes WHERE candidate_id = ?", candidateID)
+	row := db.QueryRow("SELECT COUNT(id) AS count FROM votes WHERE candidate_id = ?", candidateID)
 	row.Scan(&count)
 	return
 }
