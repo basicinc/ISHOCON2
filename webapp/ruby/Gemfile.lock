@@ -1,8 +1,11 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    ddtrace (0.30.0)
+      msgpack
     erubis (2.7.0)
     kgio (2.10.0)
+    msgpack (1.3.1)
     mysql2 (0.4.4)
     mysql2-cs-bind (0.0.6)
       mysql2
@@ -23,6 +26,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  ddtrace
   erubis
   mysql2
   mysql2-cs-bind
@@ -30,4 +34,4 @@ DEPENDENCIES
   unicorn
 
 BUNDLED WITH
-   1.16.1
+   1.16.2
