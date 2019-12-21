@@ -54,7 +54,7 @@ func getCandidateByName(name string) (c Candidate, err error) {
 }
 
 func getAllPartyName() (partyNames []string) {
-	rows, err := db.Query("SELECT political_party FROM candidates GROUP BY political_party")
+	rows, err := db.Query("SELECT * FROM candidates GROUP BY political_party")
 	if err != nil {
 		panic(err.Error())
 	}
