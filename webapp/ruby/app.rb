@@ -2,11 +2,20 @@ require 'sinatra/base'
 require 'mysql2'
 require 'mysql2-cs-bind'
 require 'erubis'
+require 'ddtrace'                         # ここ追記
+require 'ddtrace/contrib/sinatra/tracer'  # ここ追記
 
 module Ishocon2
   class AuthenticationError < StandardError; end
   class PermissionDenied < StandardError; end
 end
+
+
+Datadog.configure do |c|
+  c.use :sinatra,analytics_enabled: true
+  c.use :mysql2, analytics_enabled: true
+end
+
 
 class Ishocon2::WebApp < Sinatra::Base
   session_secret = ENV['ISHOCON2_SESSION_SECRET'] || 'showwin_happy'
