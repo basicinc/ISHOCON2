@@ -48,7 +48,7 @@ func getCandidate(candidateID int) (c Candidate, err error) {
 }
 
 func getCandidateByName(name string) (c Candidate, err error) {
-	row := db.QueryRow("SELECT * FROM candidates WHERE name = ?", name)
+	row := db.QueryRow("SELECT id FROM candidates WHERE name = ?", name)
 	err = row.Scan(&c.ID, &c.Name, &c.PoliticalParty, &c.Sex)
 	return
 }
