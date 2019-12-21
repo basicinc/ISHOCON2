@@ -63,7 +63,7 @@ SELECT keyword
 FROM votes
 WHERE candidate_id IN (?)
 GROUP BY keyword
-ORDER BY COUNT(*) DESC
+ORDER BY COUNT(id) DESC
 LIMIT 10
 SQL
       db.xquery(query, candidate_ids).map { |a| a[:keyword] }
